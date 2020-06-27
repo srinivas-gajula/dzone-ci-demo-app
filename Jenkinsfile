@@ -3,7 +3,7 @@ node {
    stage 'Checkout'
 
    // Get the latest code from Gerrit
-   git url: 'http://localhost:8082/p/Demo.git'
+   git url: 'http://3.236.102.5:8082/p/Demo.git'
 
    // Get the maven tool.
    def mvnHome = tool 'M3'
@@ -37,7 +37,7 @@ node {
 
    stage 'Deploy to Development'
    echo 'Simulating deployment to Development Environment'
-   sh "echo 'Downloading WAR file from http://localhost:8081/repository/maven-releases/org/example/cisampleapp/${env.BUILD_NUMBER}/cisampleapp-${env.BUILD_NUMBER}.war'"
+   sh "echo 'Downloading WAR file from http://3.236.102.5:8081/repository/maven-releases/org/example/cisampleapp/${env.BUILD_NUMBER}/cisampleapp-${env.BUILD_NUMBER}.war'"
    echo 'Deploying WAR file to development server(s)'
    sleep 2
 
@@ -47,7 +47,7 @@ node {
      input message: 'Do you want to deploy to Test?', submitter: 'admin'
     }
    echo 'Simulating deployment to Test Environment'
-   sh "echo 'Downloading WAR file from http://localhost:8081/repository/maven-releases/org/example/cisampleapp/${env.BUILD_NUMBER}/cisampleapp-${env.BUILD_NUMBER}.war'"
+   sh "echo 'Downloading WAR file from http://3.236.102.5:8081/repository/maven-releases/org/example/cisampleapp/${env.BUILD_NUMBER}/cisampleapp-${env.BUILD_NUMBER}.war'"
    echo 'Deploying WAR file to Test server(s)'
    sleep 5
 
@@ -57,7 +57,7 @@ node {
      input message: 'Do you want to deploy to Production?', submitter: 'admin'
     }
    echo 'Simulating deployment to Production Environment'
-   sh "echo 'Downloading WAR file from http://localhost:8081/repository/maven-releases/org/example/cisampleapp/${env.BUILD_NUMBER}/cisampleapp-${env.BUILD_NUMBER}.war'"
+   sh "echo 'Downloading WAR file from http://3.236.102.5:8081/repository/maven-releases/org/example/cisampleapp/${env.BUILD_NUMBER}/cisampleapp-${env.BUILD_NUMBER}.war'"
    echo 'Deploying WAR file to production server(s)'
    sleep 5
 
